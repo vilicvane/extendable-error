@@ -1,7 +1,7 @@
 {
   "name": "extendable-error",
   "version": "0.1.0",
-  "description": "A simple extendable error class that extends Error",
+  "description": "A simple extendable error class that extends Error.",
   "main": "bld/index.js",
   "scripts": {
     "build": "tsc",
