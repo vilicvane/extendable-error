@@ -36,7 +36,7 @@ describe('ExtendableError', () => {
             testFooError.stack.should.match(/^TestFooError\s+at Context\./);
         });
         
-        it('should throw errors being called as functions', () => {
+        it('should throw errors if being called as functions', () => {
             (() => (TestError as Function)())
                 .should.throw(ReferenceError);
                 
