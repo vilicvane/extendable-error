@@ -11,7 +11,7 @@ export abstract class ExtendableError extends Error {
             throw new ReferenceError('Expecting to be called as construcotr');
         }
         
-        this.stack = (new Error() as any)
+        this.stack = (<any>new Error())
             .stack
             .replace(/^.+(\s+at.+)*?\s+at new .+/, this.name);
     }
