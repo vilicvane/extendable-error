@@ -11,9 +11,35 @@ export abstract class ExtendableError extends Error {
             throw new ReferenceError('Expecting to be called as construcotr');
         }
         
-        this.stack = (<any>new Error())
-            .stack
-            .replace(/^.+(\s+at.+)*?\s+at new .+/, this.name);
+        let prototype = (<any>this).__proto__;
+        let depth = 1;
+        
+        loop:
+        while (prototype) {
+            switch (prototype) {
+                case ExtendableError.prototype:
+                    break loop;
+                case Object.prototype:
+                    depth = 1;
+                    break loop;
+                default:
+                    depth++;
+                    break;
+            }
+            
+            prototype = prototype.__proto__;
+        }
+        
+        let stackLines = new Error().stack.match(/.+/g);
+        let nameLine = this.name;
+        
+        if (message) {
+            nameLine += `: ${message}`;
+        }
+        
+        stackLines.splice(0, depth + 1, nameLine);
+        
+        this.stack = stackLines.join('\n');
     }
 }
 
