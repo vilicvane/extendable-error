@@ -17,7 +17,9 @@ class SomeError extends ExtendableError {
     constructor(
         message: string,
         public code: number
-    ) { }
+    ) {
+        super(message);
+    }
 }
 
 let someError = new SomeError('Some error', 0x0001);
