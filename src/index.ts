@@ -1,19 +1,24 @@
 export abstract class ExtendableError extends Error {
-    name: string = (this.constructor as any).name;
-    stack: string;
-    
+    name = (this.constructor as any).name as string;
+
+    private _error: Error;
+    private _stack: string;
+
     constructor(
         public message = ''
     ) {
         super(message);
-        
-        if (!(this instanceof ExtendableError)) {
-            throw new ReferenceError('Expecting to be called as construcotr');
+        this._error = new Error();
+    }
+
+    get stack(): string {
+        if (this._stack) {
+            return this._stack;
         }
-        
-        let prototype = (<any>this).__proto__;
+
+        let prototype = Object.getPrototypeOf(this);
         let depth = 1;
-        
+
         loop:
         while (prototype) {
             switch (prototype) {
@@ -26,20 +31,20 @@ export abstract class ExtendableError extends Error {
                     depth++;
                     break;
             }
-            
-            prototype = prototype.__proto__;
+
+            prototype = Object.getPrototypeOf(prototype);
         }
-        
-        let stackLines = new Error().stack.match(/.+/g);
+
+        let stackLines = this._error.stack.match(/.+/g);
         let nameLine = this.name;
-        
-        if (message) {
-            nameLine += `: ${message}`;
+
+        if (this.message) {
+            nameLine += `: ${this.message}`;
         }
-        
+
         stackLines.splice(0, depth + 1, nameLine);
-        
-        this.stack = stackLines.join('\n');
+
+        return this._stack = stackLines.join('\n');
     }
 }
 
