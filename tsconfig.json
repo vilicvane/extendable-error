@@ -1,16 +1,19 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "noEmitOnError": true,
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "declaration": true,
-        "sourceRoot": "src",
-        "outDir": "bld"
-    },
-    "exclude": [
-        "bld",
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "sourceMap": true,
+    "declaration": true,
+    "newLine": "LF",
+    "sourceRoot": "src",
+    "outDir": "bld"
+  },
+  "exclude": [
+    "bld",
+    "node_modules"
+  ]
 }

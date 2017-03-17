@@ -14,12 +14,12 @@ npm install extendable-error --save
 import ExtendableError from 'extendable-error';
 
 class SomeError extends ExtendableError {
-    constructor(
-        message: string,
-        public code: number
-    ) {
-        super(message);
-    }
+  constructor(
+    message: string,
+    public code: number
+  ) {
+    super(message);
+  }
 }
 
 let someError = new SomeError('Some error', 0x0001);

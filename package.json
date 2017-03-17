@@ -1,12 +1,13 @@
 {
   "name": "extendable-error",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A simple extendable error class that extends Error.",
   "main": "bld/index.js",
   "typings": "bld/index.d.ts",
   "scripts": {
+    "tsc": "tsc",
     "build": "tsc -v && tsc",
-    "test": "node node_modules/mocha/bin/_mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,11 @@
   },
   "homepage": "https://github.com/vilic/extendable-error#readme",
   "devDependencies": {
-    "chai": "latest",
-    "mocha": "latest",
-    "typescript": "latest"
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.8",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "typescript": "^2.2.1"
   }
 }
