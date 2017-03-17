@@ -1,0 +1,11 @@
+{
+  "extends": "vts",
+  "rules": {
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-leading-underscore"
+    ],
+    "no-eval": false
+  }
+}

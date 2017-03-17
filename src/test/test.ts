@@ -6,7 +6,7 @@ describe('ExtendableError', () => {
 
   let {
     ES6TestError,
-    ES6TestDerivedError
+    ES6TestDerivedError,
   } = eval(`
     'use strict';
 

@@ -5,7 +5,7 @@ export abstract class ExtendableError extends Error {
   private _stack: string;
 
   constructor(
-    public message = ''
+    public message = '',
   ) {
     super(message);
     this._error = new Error();

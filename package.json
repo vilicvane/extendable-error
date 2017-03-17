@@ -6,7 +6,11 @@
   "typings": "bld/index.d.ts",
   "scripts": {
     "tsc": "tsc",
-    "build": "tsc -v && tsc",
+    "tslint": "tslint",
+    "mocha": "mocha",
+    "lint": "tslint src/**/*.ts -c tslint.json",
+    "build": "rimraf bld && tsc",
+    "pretest": "npm run lint && npm run build",
     "test": "mocha"
   },
   "repository": {
@@ -26,6 +30,9 @@
     "@types/node": "^7.0.8",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "typescript": "^2.2.1"
+    "rimraf": "^2.6.1",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1",
+    "vts": "^0.1.0"
   }
 }
