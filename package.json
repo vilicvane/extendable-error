@@ -9,8 +9,8 @@
     "tslint": "tslint",
     "mocha": "mocha",
     "lint": "tslint src/**/*.ts -c tslint.json",
-    "build": "rimraf bld && tsc",
-    "pretest": "npm run lint && npm run build",
+    "build": "npm run lint && rimraf bld && tsc",
+    "pretest": "npm run build",
     "test": "mocha"
   },
   "repository": {
