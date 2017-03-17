@@ -1,5 +1,5 @@
 export abstract class ExtendableError extends Error {
-  name = (this.constructor as any).name as string;
+  name: string;
 
   private _error: Error;
   private _stack: string;
@@ -8,6 +8,9 @@ export abstract class ExtendableError extends Error {
     public message = '',
   ) {
     super(message);
+    Object.setPrototypeOf(this, new.target.prototype);
+    delete (<Error>this).stack;
+    this.name = new.target.name;
     this._error = new Error();
   }
 
@@ -35,7 +38,7 @@ export abstract class ExtendableError extends Error {
       prototype = Object.getPrototypeOf(prototype);
     }
 
-    let stackLines = this._error.stack.match(/.+/g);
+    let stackLines = (this._error.stack || '').match(/.+/g) || [];
     let nameLine = this.name;
 
     if (this.message) {

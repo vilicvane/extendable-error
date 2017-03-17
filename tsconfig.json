@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": [
+      "es2015"
+    ],
     "module": "commonjs",
     "noEmitOnError": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
+    "strictNullChecks": true,
     "sourceMap": true,
     "declaration": true,
     "newLine": "LF",
