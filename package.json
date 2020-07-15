@@ -1,6 +1,6 @@
 {
   "name": "extendable-error",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A simple extendable error class that extends Error.",
   "main": "bld/index.js",
   "typings": "bld/index.d.ts",
