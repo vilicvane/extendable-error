@@ -13,7 +13,7 @@
     "sourceMap": true,
     "declaration": true,
     "newLine": "LF",
-    "sourceRoot": "src",
+    "rootDir": "src",
     "outDir": "bld"
   },
   "exclude": [
